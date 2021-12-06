@@ -1,0 +1,67 @@
+﻿<Window x:Class="FinalApp.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:controls="clr-namespace:FinalApp.Views"
+        xmlns:viewmodel="clr-namespace:FinalApp.ViewModels"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="420" Width="525">
+    <Window.Resources>
+        <viewmodel:MainWindowViewModel x:Key="but"></viewmodel:MainWindowViewModel>
+        <viewmodel:exitButtonViewModel x:Key="exit"></viewmodel:exitButtonViewModel>
+        <viewmodel:ViewLoginViewModel x:Key="login"></viewmodel:ViewLoginViewModel>
+        <Style x:Key="firstButton" TargetType="Button">
+            <Setter Property="Background" Value="#00cccc"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="4 0 0 0" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="lastButton" TargetType="Button">
+            <Setter Property="Background" Value="#00cccc"/>
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="0 4 0 0"/>
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style x:Key="middleButton" TargetType="Button">
+            <Setter Property="Background" Value="#00cccc"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="10"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="10"/>
+        </Grid.RowDefinitions>
+        
+        <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="4" Grid.RowSpan="6" Margin="10">
+            <controls:ViewLogin x:Name="loginUserControl" Visibility="Visible"/>
+            <controls:ViewRegistration x:Name="registrationUserControl" Visibility="Collapsed"/>
+            <controls:General x:Name="generalUserControl" Visibility="Collapsed"/>
+        </StackPanel>
+        
+        <DockPanel Cursor="Hand" Grid.Column="0" Grid.ColumnSpan="5" HorizontalAlignment="Left">
+            <Button Content="{Binding LoginButton}" Width="70" Style="{StaticResource firstButton}"  Click="LoginButtonClick"/>
+            <Button Content="{Binding GeneralButton}" Width="70" Style="{StaticResource middleButton}" Click="GeneralButtonClick"/>
+            <Button Content="{Binding RegistrationButton}" Width="90" Style="{StaticResource middleButton}" Click="RegistrationButtonClick"/>
+            <Button Content="{Binding ExitButton}" Width="70" Style="{StaticResource lastButton}" Command="{Binding Source={StaticResource exit}, Path=eButton}" />
+        </DockPanel>
+        <Border Grid.Column="0" Grid.ColumnSpan="5" Grid.Row="1" Grid.RowSpan="7" BorderBrush="#00b3b3" BorderThickness="6">
+        </Border>
+    </Grid>
+</Window>

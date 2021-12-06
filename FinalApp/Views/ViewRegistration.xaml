@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="FinalApp.Views.ViewRegistration"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"             
+             prism:ViewModelLocator.AutoWireViewModel="True">
+    <UserControl.Resources>
+        <Style TargetType="{x:Type TextBox}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8" />
+                </Style>
+            </Style.Resources>
+        </Style>
+        <Style TargetType="{x:Type PasswordBox}">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="8" />
+                </Style>
+            </Style.Resources>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="30"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        
+        <!--Border-->
+        <Border Grid.Column="1" Grid.Row="0" Width="350" Height="280" Grid.ColumnSpan="2" Grid.RowSpan="8" Margin=" 20" CornerRadius="20" Background="#E7F4F2">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="10" Color="LightGray" ShadowDepth="10"/>
+            </Border.Effect>
+            <!--info-->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <TextBox x:Name="userNameValue" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" TextAlignment="left" MaxWidth="300" MaxHeight="30" FontSize="20" Text="Username" Opacity="0.5"  FontFamily="Segoe UI Light" GotFocus="userNameValue_GotFocus_1"  />
+                <TextBox x:Name="cityValue" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2"  MaxWidth="300" MaxHeight="30" FontSize="20" Opacity="0.5" Text="City" FontFamily="Segoe UI Light"  />
+                <TextBox x:Name="genderValue" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="2"  MaxWidth="300" MaxHeight="30" FontSize="20"  Opacity="0.5" Text="Gender" FontFamily="Segoe UI Light"  />
+                <TextBox x:Name="emailAddress" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="2" TextAlignment="left" MaxWidth="300" MaxHeight="30" FontSize="20" Text="Email address" Opacity="0.5"  FontFamily="Segoe UI Light"  />
+                <Button Click="registerButton_Click" x:Name="registerButton" Content="Register" Grid.Column="1" Grid.Row="6" FontSize="25" Grid.ColumnSpan="2" Background="#738280" MaxWidth="300" FontFamily="Sitka Small" />
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
