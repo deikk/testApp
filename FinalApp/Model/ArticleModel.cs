@@ -9,7 +9,7 @@ namespace FinalApp.Model
 {
     public class ArticleModel 
     {
-        //asdsadasdsa
+        //asdsadasdsaasdasasd
         private int _id;
         public int Id
         {
